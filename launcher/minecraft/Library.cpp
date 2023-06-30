@@ -129,6 +129,9 @@ QList<NetAction::Ptr> Library::getDownloads(
 
         if (useBMCLAPI) {
             url.replace(BuildConfig.LIBRARY_BASE, BuildConfig.BMCLAPI_LIBRARY_BASE);
+            url.replace("https://launcher.mojang.com/", BuildConfig.BMCLAPI_BASE); // Older versions of Minecraft may use
+            url.replace("https://maven.minecraftforge.net/", BuildConfig.BMCLAPI_BASE); // Minecraft Forge
+            url.replace("https://maven.fabricmc.net/", BuildConfig.BMCLAPI_FABRIC_BASE);
         }
 
         if(sha1.size())
